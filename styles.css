@@ -1,0 +1,139 @@
+
+/* Grundläggande stil */ 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; 
+    line-height: 1.5;
+    color: #222;
+}
+
+header {
+    padding: 1rem; 
+}
+
+.logo {
+    width: 60px;
+}
+
+/* Huvudlayout med CSS Grid */ 
+main {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: /* Bestämmer ordningen på alla delarna */
+      "intro subjects"
+      "images images"
+      "courses courses";
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Introduktionstexten */
+
+.introduction {
+    grid-area: intro;
+}
+
+.introduction h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Lista över ämnen som erbjuds */
+.subjects {
+    background-color: #2b7bff;
+    color: white;
+    padding: 3rem;
+    border-radius: 0 0 0 80px;
+    grid-area: subjects;
+    justify-self: end;
+    width: 100%;
+}
+
+/* Bilddelen */
+.images {
+    display: flex; 
+    justify-content: space-around;
+    gap: 1rem;
+    margin: 2rem 0;
+    grid-area: images;
+}
+
+.images img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+}
+
+/* Kurserna */
+.courses {
+    background-color: #e6f0ff;
+    padding: 2rem;
+    border-radius: 20px;
+    grid-area: courses;
+}
+
+/* Sidfoten */
+footer {
+    background-color: #2b7bff;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem; 
+}
+
+
+/* Responsiv Webbdesign */
+
+/* Layout för Mobil */
+@media (max-width: 767px) {
+    body {
+        background: lightblue;
+        font-size: 0.95rem;
+    }
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .images img {
+        max-width: 100%;
+    }
+    .subjects {
+        border-radius: 0;
+    }
+}
+
+/* Layout för Surfplatta*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    main {
+        background: lightgreen;
+        grid-template-columns: 1fr;
+    }
+
+    .images {
+        flex-wrap: wrap;
+    }
+    .images img {
+        flex: 1 1 45%;
+    }
+}
+    
+/* Layout för Desktop */
+@media (min-width: 1025px) {
+    body {
+        background: lightcoral;
+    }
+}
+
+
+
