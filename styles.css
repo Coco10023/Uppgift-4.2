@@ -1,16 +1,17 @@
+/* Lösning till uppgift 4.1 av Francisco De Leon 2025. 
 
-/* Grundläggande stil */ 
-*,
+/* Fick feedback om att alltid lägga in denna kod för att undvika att element tar för mycket plats då
+padding och border räknas med på bredden vid width. Vilket gör det mer förutsägbart när man bygger layout. */
+
+*,  
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0; 
+    margin: 0;  /* För att nollställa marginaler och padding så att jag får en clean start */
     padding: 0;
 }
+
+/* Grundläggande stil */ 
 
 body {
     font-family: Arial, Helvetica, sans-serif; 
@@ -39,7 +40,6 @@ main {
 }
 
 /* Introduktionstexten */
-
 .introduction {
     grid-area: intro;
 }
@@ -56,11 +56,12 @@ main {
     padding: 3rem;
     border-radius: 0 0 0 80px;
     grid-area: subjects;
-    justify-self: end;
+    justify-self: end; /* För att flytta rutan mer åt höger*/
+    margin-right: -2rem; /* För att möte högra kanten av skärmen */
     width: 100%;
 }
 
-/* Bilddelen */
+/* Bild delen */
 .images {
     display: flex; 
     justify-content: space-around;
@@ -81,6 +82,7 @@ main {
     padding: 2rem;
     border-radius: 20px;
     grid-area: courses;
+    width: 50%; /* För att halvera rutan */
 }
 
 /* Sidfoten */
@@ -93,9 +95,9 @@ footer {
 }
 
 
-/* Responsiv Webbdesign */
+/* Responsiv Webbdesign med hjälp av media queries*/
 
-/* Layout för Mobil */
+/* Layout för Mobil (Upp till 767px)*/
 @media (max-width: 767px) {
     body {
         background: lightblue;
@@ -103,21 +105,36 @@ footer {
     }
     main {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "intro"
+            "subjects"
+            "images"
+            "courses";
+        padding: 1rem; 
     }
-
     .images img {
         max-width: 100%;
     }
     .subjects {
         border-radius: 0;
     }
+    .courses {
+        width: 100%;
+        margin-right: 0; 
+        justify-content: center;
+    }
 }
 
-/* Layout för Surfplatta*/
+/* Layout för Surfplatta (768-1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     main {
         background: lightgreen;
         grid-template-columns: 1fr;
+        grid-template-areas: 
+          "intro"
+          "subjects"
+          "images"
+          "courses";
     }
 
     .images {
@@ -126,9 +143,14 @@ footer {
     .images img {
         flex: 1 1 45%;
     }
+    .courses {
+        width: 95%;
+        justify-self: center;
+        margin-right: 0;
+    }
 }
     
-/* Layout för Desktop */
+/* Layout för Desktop (Över 1025px) */
 @media (min-width: 1025px) {
     body {
         background: lightcoral;
