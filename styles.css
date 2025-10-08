@@ -139,10 +139,11 @@ footer {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
           "intro subjects"
-          "images"
-          "courses";
+          "images images"
+          "courses courses";
         gap: 1.5rem;
         padding: 1.5rem;
+        align-items: start;
     }
 
     .introduction {
@@ -166,6 +167,7 @@ footer {
         max-width: 45%;
     }
     .courses {
+        grid-area: courses;
         width: 50%;
         margin-right: 0;
         border-radius: 0 20px 20px 0;
