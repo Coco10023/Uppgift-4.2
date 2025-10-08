@@ -141,20 +141,25 @@ footer {
           "subjects"
           "courses" /* Flyttar upp kurserna ovanför bilderna  */
           "images";
+        gap: 2rem;
+        padding: 1.5rem;
     }
 
     .images {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 1.5rem;
     }
     .images img {
         flex: 1 1 45%;
         max-width: 45%;
     }
+    .subjects,
     .courses {
-        width: 95%;
+        width: 100%;
         justify-self: center;
         margin-right: 0;
+        border-radius: 0;
     }
 }
     
