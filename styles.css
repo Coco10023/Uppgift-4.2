@@ -107,21 +107,27 @@ footer {
         grid-template-columns: 1fr;
         grid-template-areas:
             "intro"
-            "subjects"
-            "images"
-            "courses";
+            "courses" /* Flyttar upp kursdelen */
+            "images"; /* Sedan kommer bilderna */
+            /* Tog bort subject eftersom den ska döljas */
         padding: 1rem; 
     }
-    .images img {
-        max-width: 100%;
+
+    .images {
+        flex-direction: column; /* För att stapla bilderna  */
+        align-items: center; /* För att centrera bilderna horisontellt */
     }
+
+    .images img {
+        max-width: 90%;
+    }
+    /* Dölj blå rutan på mobil */
     .subjects {
-        border-radius: 0;
+        display:none;
     }
     .courses {
         width: 100%;
-        margin-right: 0; 
-        justify-content: center;
+        margin: 0 auto;
     }
 }
 
@@ -133,15 +139,17 @@ footer {
         grid-template-areas: 
           "intro"
           "subjects"
-          "images"
-          "courses";
+          "courses" /* Flyttar upp kurserna ovanför bilderna  */
+          "images";
     }
 
     .images {
         flex-wrap: wrap;
+        justify-content: center;
     }
     .images img {
         flex: 1 1 45%;
+        max-width: 45%;
     }
     .courses {
         width: 95%;
