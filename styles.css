@@ -135,14 +135,25 @@ footer {
 @media (min-width: 768px) and (max-width: 1024px) {
     main {
         background: lightgreen;
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas: 
-          "intro"
-          "subjects"
-          "courses" /* Flyttar upp kurserna ovanför bilderna  */
-          "images";
-        gap: 2rem;
+          "intro subjects"
+          "images"
+          "courses";
+        gap: 1.5rem;
         padding: 1.5rem;
+    }
+
+    .introduction {
+        grid-area: intro;
+    }
+
+    .subjects {
+        grid-area: subjects;
+        width: 100%;
+        margin: 0;
+        border-radius: 0 0 0 60px;
     }
 
     .images {
@@ -154,12 +165,13 @@ footer {
         flex: 1 1 45%;
         max-width: 45%;
     }
-    .subjects,
     .courses {
-        width: 100%;
-        justify-self: center;
+        width: 50%;
         margin-right: 0;
-        border-radius: 0;
+        border-radius: 0 20px 20px 0;
+    }
+    .text {
+        text-align: start;
     }
 }
     
